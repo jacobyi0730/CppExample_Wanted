@@ -33,6 +33,15 @@
 
 # Folders
 x64/*
-x86/*
+x64/Debug/*
+x86/Debug/*
 CppExample/x64/*
 .vs/*
+
+# log
+*.tlog
+*.log
+*.pdb
+*.idb
+*.ilk
+*.recipe
