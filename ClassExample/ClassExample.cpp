@@ -62,10 +62,32 @@ public:
         tall = 100;
     }
 
-    void Print() override {
+    virtual void Print() override {
+        // 부모의 Print를 완전 덮어쓰기
+        Animal::Print();
         printf("Cat::Print -> age : %d, type : %s\n", age, type.c_str());
     }
 };
+// 인터페이스
+class Interface {
+    virtual void Print() = 0;
+    virtual void Walk() = 0;
+};
+
+// 추상클래스 Abstract
+class Base : Interface {
+    // 순수 가상함수
+    int age;
+};
+
+class Derived : public Base {
+    virtual void Print() override {
+    }
+    virtual void Walk() override {
+    }
+
+};
+
 
 int main()
 {
