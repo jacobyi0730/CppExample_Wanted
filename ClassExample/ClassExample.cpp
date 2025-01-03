@@ -43,7 +43,7 @@ public:
         return type;
     }
 
-    void Print() {
+    virtual void Print() {
         printf("Animal::Print -> age : %d, type : %s\n", age, type.c_str());
     }
 
@@ -62,15 +62,18 @@ public:
         tall = 100;
     }
 
-    void Print() {
+    void Print() override {
         printf("Cat::Print -> age : %d, type : %s\n", age, type.c_str());
     }
 };
 
 int main()
 {
-
-
+    // 재정의 overide
+    Cat cat(10);
+    //cat.Print();
+    Animal* pAni = &cat;
+    pAni->Print();
 
     //Cat cat(10);
     //Cat* pCat = &cat;
