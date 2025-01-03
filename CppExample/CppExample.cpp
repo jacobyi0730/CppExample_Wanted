@@ -5,14 +5,21 @@
 #include "Calc.h"
 
 // 더하기
-int Add(int a, int b);	// 선언부
+int Add(int a, int b);		// 선언부
+int Add(int* a, int* b);	// 선언부
+int AddRef(int& a, int& b);	// 선언부
+
 
 int main()
 {
-	Calc c;
-	// 함수
-	int result = c.Add(10.f, 20.f); // overloading
-	printf("result : %d", result);
+	int i = 10, j = 20;
+	int result = AddRef(i, j);
+	printf("i : %d", i);
+
+	//Calc c;
+	//// 함수
+	//int result = c.Add(10.f, 20.f); // overloading
+	//printf("result : %d", result);
 
 	//// 포인터
 	////int a = 10;
@@ -89,9 +96,27 @@ int main()
 // 정의/구현
 int Add(int a, int b)
 {
+	a = 100;
 	int c = a + b;
 	return c;
 }
+int Add(int* a, int* b)
+{
+	*a = 100;
+	int c = *a + *b;
+	return c;
+}
+int AddRef(int& a, int& b)
+{
+	a = 100;
+	int c = a + b;
+	return c;
+}
+
+
+
+
+
 float Add(float a, float b)
 {
 	float c = a + b;
