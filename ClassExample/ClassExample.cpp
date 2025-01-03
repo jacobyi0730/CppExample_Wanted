@@ -5,7 +5,7 @@ using namespace std;
 // 클래스 (사용자정의자료형)
 class Animal
 {
-private:
+protected:
     string type;
 public:
     // 생성자함수 (Constructor)
@@ -14,8 +14,7 @@ public:
         printf("Animal 기본 생성자\n");
     }
 
-    Animal(int newAge) {
-        age = newAge;
+    Animal(int newAge) : age(newAge){
         printf("Animal 기본 생성자(매개변수)\n");
     }
 
@@ -31,7 +30,7 @@ public:
 
     }
 
-#pragma region 기타 코드
+public:
     int age;
 
     void SetType(string newType)
@@ -45,21 +44,56 @@ public:
     }
 
     void Print() {
-        printf("age : %d, type : %s\n", age, type.c_str());
+        printf("Animal::Print -> age : %d, type : %s\n", age, type.c_str());
     }
 
     void Walk() {
         printf("Animal::Walk\n");
     }
-#pragma endregion
+
+};
+
+class Cat : public Animal {
+public:
+
+    int tall;
+    Cat(int newAge) : Animal(newAge)
+    {
+        tall = 100;
+    }
+
+    void Print() {
+        printf("Cat::Print -> age : %d, type : %s\n", age, type.c_str());
+    }
 };
 
 int main()
 {
-    // 클래스의 객체를 복사
-    Animal a1;
-    //Animal a2 = a1;
-    Animal a2(a1);
+
+
+
+    //Cat cat(10);
+    //Cat* pCat = &cat;
+    //pCat->Print();
+    //
+    //// 자식을 부모포인터에 담다.(Up Casting)
+    //Animal* pAni = &cat;    
+
+    //// 부모를 자식포인터에 담다.(Down Casting)
+    //Animal animal(10);
+    //Cat* pCat2 = (Cat*)(&animal);
+    //printf("pCat2의 tall : %d\n", pCat2->tall);
+    //
+    //Cat* pCat3 = (Cat*)(&pAni);
+    //printf("pCat3의 tall : %d\n", pCat3->tall);
+
+    
+    
+
+    //// 클래스의 객체를 복사
+    //Animal a1;
+    ////Animal a2 = a1;
+    //Animal a2(a1);
 
     //int a = 0;  // c style
     //int c(0);   // cpp style
