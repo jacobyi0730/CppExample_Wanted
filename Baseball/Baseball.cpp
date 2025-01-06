@@ -1,10 +1,45 @@
 ﻿#include <iostream>
+#include <ctime>
 using namespace std;
 
 int main()
 {
     // 1. 컴퓨터가 랜덤으로 1~9까지 중복되지 않는 숫자 3개를 기억하고싶다.
-    int quiz[3]{ 3, 6, 9 };
+    int quiz[3]{ 0 };
+
+    srand((unsigned int)time(0));
+    int index;
+    for (int k = 0; k < 10; k++)
+    {
+        index = 0;
+        // quiz배열에 하나씩 추가하고 다 넣으면 그만하고싶다.
+        while (index < 3)
+        {
+            // 랜덤으로 1~9까지 숫자 하나를 정하고싶다.
+            int r = (rand() % 9) + 1;
+
+            // r값이 현재 인덱스를 기준으로 quiz배열에 같은값이 들어있는지 검사
+            // 만약 들어있으면 r을 다시 결정해야한다.
+            bool isSuccess = true;
+            for (int i = 0; i < index; i++)
+            {
+                if (quiz[i] == r)
+                {
+                    isSuccess = false;
+                    break;
+                }
+            }
+            if (true == isSuccess)
+            {
+                quiz[index++] = r;
+            }
+        }
+
+        cout << quiz[0] << quiz[1] << quiz[2] << endl;
+    }
+
+
+
     int answers[3]{ 0 };
 
     while (true)
