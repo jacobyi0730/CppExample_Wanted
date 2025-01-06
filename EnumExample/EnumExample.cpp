@@ -2,6 +2,7 @@
 //
 
 #include <stdio.h>
+#include <iostream>
 //
 //namespace EnemyState {
 //	enum EEnemyState {
@@ -45,40 +46,49 @@
 //	}
 //}
 
+//
+//// 기본 매크로 기능(텍스트를 치환)
+//#define MAX 100
+//#define MY_MAX int a
+//// 매크로 함수
+//#define ADD(a,b) ((a)*(b))
+//#define PRINT(str) printf(#str);
+//#define PRINT2(a,b)	printf(a##b);
+//
+//#define CHEAT_VERSION
+////#undef CHEAT_VERSION
+//
+//int main2()
+//{
+//
+////	int gold = 0;
+////#ifdef CHEAT_VERSION
+////	gold = 1000000;
+////#else
+////	gold = 100;
+////#endif
+////
+////	PRINT2("Hello", " World!");
+//	//PRINT("Hello World!!\n");
+//	//int result = ADD(10, 2+3 );
+//	//printf("%d", result);
+//}
 
-// 기본 매크로 기능(텍스트를 치환)
-#define MAX 100
-#define MY_MAX int a
-// 매크로 함수
-#define ADD(a,b) ((a)*(b))
-#define PRINT(str) printf(#str);
-#define PRINT2(a,b)	printf(a##b);
-
-#define CHEAT_VERSION
-//#undef CHEAT_VERSION
 
 int main()
 {
-	int gold = 0;
-#ifdef CHEAT_VERSION
-	gold = 1000000;
-#else
-	gold = 100;
-#endif
-
-	PRINT2("Hello", " World!");
-	//PRINT("Hello World!!\n");
-	//int result = ADD(10, 2+3 );
-	//printf("%d", result);
+	// 별을 찍어봅시다.
+	// 숫자를 하나 입력받고
+	int count;
+	std::cin >> count;
+	// 그 숫자만큼 행을 만들고
+	for (int i = 0; i < count; i++)
+	{
+		// 위에서부터 아래로 1개씩 *표시가 늘어나도록
+		for (int j = 0; j < i + 1; j++)
+		{
+			std::cout << "*";
+		}
+		std::cout << std::endl;
+	}
 }
-
-// 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
-// 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
-
-// 시작을 위한 팁: 
-//   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
-//   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
-//   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
-//   4. [오류 목록] 창을 사용하여 오류를 봅니다.
-//   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
-//   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
